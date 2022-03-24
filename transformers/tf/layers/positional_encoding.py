@@ -35,6 +35,3 @@ class PositionalEncoding(Layer):
 
     def call(self, inputs):
         return inputs + self.pos_encoding[:, :tf.shape(inputs)[1], :]
-
-if __name__ == "__main__":
-    sample_pos_encoding = PositionalEncoding(50, 128)
