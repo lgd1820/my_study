@@ -3,6 +3,7 @@ import torch.nn as nn
 import pandas as pd
 import re
 import os
+import matplotlib.pyplot as plt
 os.environ['CUDA_LAUNCH_BLOCKING'] = "1"
 
 from module.transformer import Transformer
@@ -12,9 +13,9 @@ from soynlp.tokenizer import LTokenizer
 tokenizer = LTokenizer()
 
 MAX_LENGTH = 60
-D_MODEL = 256
-NUM_LAYERS = 7
-NUM_HEADS = 8
+D_MODEL = 128
+NUM_LAYERS = 4
+NUM_HEADS = 4
 HIDDEN = 512
 BATCH_SIZE = 64
 NUM_EPOCH = 100
@@ -150,3 +151,16 @@ for epoch in range(NUM_EPOCH):
     epoch_train_loss.append(epoch_loss)
 
     print(f"Epoch {epoch+1}/{NUM_EPOCH} Average Loss: {epoch_loss}")
+
+fig = plt.figure(figsize=(8,8))
+fig.set_facecolor('white')
+ax = fig.add_subplot()
+
+ax.plot(epoch_,epoch_train_loss, label='Average loss')
+
+
+ax.legend()
+ax.set_xlabel('epoch')
+ax.set_ylabel('loss')
+
+plt.savefig('train.png')
