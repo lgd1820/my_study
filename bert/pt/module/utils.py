@@ -177,8 +177,6 @@ def make_pretrain_data(vocab, in_file, out_file, count, n_seq, mask_prob):
                     pbar.update(1)
 
 if __name__ == "__main__":
-
-
     test = torch.Tensor([[1,2,3,4,5,6]])
     print(test.shape)
     test1 = make_mask(test, option='padding')
