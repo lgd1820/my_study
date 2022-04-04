@@ -3,9 +3,14 @@ import torch
 from einops import rearrange, repeat
 
 def make_mask(tensor: torch.tensor, option: str) -> torch.Tensor:
-    '''
-    tensor (batch_size, seq_len)
-    '''
+    """
+    Args:
+        tensor (torch.tensor): 입력 텐서
+        option (str): padding 옵션
+
+    Returns:
+        torch.Tensor: 마스크된 텐서
+    """
     if option == 'padding':
         tmp = torch.full_like(tensor, fill_value=0)
         mask = (tensor != tmp).float()

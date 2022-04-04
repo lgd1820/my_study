@@ -23,5 +23,6 @@ class Transformer(nn.Module):
         dec_output = self.dec_outputs(enc_output, dec_input, dec_padding_mask, look_ahead_mask)
 
         outputs = self.output(dec_output)
+        outputs = self.output(self.softmax)
 
         return outputs
