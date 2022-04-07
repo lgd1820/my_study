@@ -12,9 +12,10 @@ B 문장 : Python is my favorite programming language(내가 가장 좋아하는
 
 ## 2. BERT의 동작 방식
 BERT는 트랜스포머 모델을 기반으로 하며, 인코더-디코더 형태가 아닌 인코더만 사용한다.
+
 <figure align="center">
-  <img src="./images/bert_architecture.png" title="BERT 구조"/>
-  <figcaption>BERT 구조</figcaption>
+    <img src="./images/bert_architecture.png" alt>
+    <figcaption><b>BERT 구조</b></figcaption>
 </figure>
 
 ## 3. BERT 구조
