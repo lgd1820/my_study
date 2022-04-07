@@ -12,7 +12,10 @@ B 문장 : Python is my favorite programming language(내가 가장 좋아하는
 
 ## 2. BERT의 동작 방식
 BERT는 트랜스포머 모델을 기반으로 하며, 인코더-디코더 형태가 아닌 인코더만 사용한다.
-![bert_architecture](./images/bert_architecture.png){: padding=0 margin=0}
+<figure align="center">
+  <img src="./images/bert_architecture.png" title="BERT 구조"/>
+  <figcaption>BERT 구조</figcaption>
+</figure>
 
 ## 3. BERT 구조
 - 인코더 레이어 수는 L로 표시
@@ -33,8 +36,15 @@ L = 24, A = 16, H = 1024
 - BERT-small : L = 4, A = 8, H = 521
 - BERT-medium : L = 8, A = 8, H = 521
 
-### 4. BERT의 pre-trained
+## 4. BERT의 pre-trained
 모델을 학습시킬때 특정 태스크에 대한 방대한 데이터셋으로 모델을 시키고 학습된 모델을 저장한다. 새 태스크가 주어지면 임의 가중치로 모델을 초기화하는 대신 이미 학습된 모델의 가중치로 모델을 초기화한다. 모델이 이미 대규모 데이터셋에 학습되어있으므로 새 태스크를 위해 새로운 모델로 처음부터 학습시키는 대신 사전 학습된 모델을 사용하고 새로운 태스크에 따라 가중치를 조정(fine tuning)한다.
 
 BERT는 MLM(Masked Language Model)과 NSP(Next Sentence Prediction)라는 두 가지 태스크를 이용해 거대한 말뭉치를 기반으로 사전 학습된다. 사전 학습 후 사전 학습된 BERT를 저장해두고, 새로운 태스크가 주어질 경우 BERT를 처음부터 학습시키는 대신 사전 학습된 BERT를 사용한다.
 
+### 4.1. BERT의 입력 표현
+BERT에 데이터를 입력하기 전에 세 가지 임베딩 레이어를 기반으로 입력 데이터를 임베딩으로 변환해야 한다.
+- 토큰 임베딩(token embedding)
+- 세그먼트 임베딩(segment embedding)
+- 위치 임베딩(position embedding)
+
+#### 토큰 임베딩
