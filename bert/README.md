@@ -15,7 +15,7 @@ BERT는 트랜스포머 모델을 기반으로 하며, 인코더-디코더 형�
 
 <figure style="display:block; text-align:center;">
     <img src="./images/bert_architecture.png" style="margin:0px auto">
-    <figcaption><b>BERT 구조</b></figcaption>
+    <figcaption style="text-align:center;"><b>BERT 구조</b></figcaption>
 </figure>
 
 ## 3. BERT 구조
