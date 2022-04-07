@@ -25,7 +25,8 @@ class Encoder(nn.Module):
 
         outputs = self.dropout(embedding)
 
+        attn_probs = []
         for layer in self.enc_layers:
-            outputs = layer(outputs, mask)
-        
-        return outputs
+            outputs, score = layer(outputs, mask)
+            attn_probs.append(score)
+        return outputs, score

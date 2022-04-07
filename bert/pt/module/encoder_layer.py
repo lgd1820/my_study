@@ -16,7 +16,7 @@ class EncoderLayer(nn.Module):
 
     def forward(self, inputs, mask=None):
         # 멀티 헤드 어텐션
-        attention = self.attention(
+        attention, score = self.attention(
             {
                 "query" : inputs, 
                 "key" : inputs,
@@ -36,4 +36,4 @@ class EncoderLayer(nn.Module):
         outputs = self.dropout2(outputs)
         outputs = self.norm2(attention + outputs)
 
-        return outputs
+        return outputs, score

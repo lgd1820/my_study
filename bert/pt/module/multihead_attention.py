@@ -46,4 +46,4 @@ class MultiHeadAttention(nn.Module):
 
         output = self.out(result)
         
-        return output
+        return output, score

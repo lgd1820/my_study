@@ -16,13 +16,13 @@ class BERT(nn.Module):
     def forword(self, inputs, segments):
         enc_padding_mask = make_mask(inputs, "padding")
 
-        outputs = self.encoder(inputs, segments, enc_padding_mask)
+        outputs, attn_probs = self.encoder(inputs, segments, enc_padding_mask)
 
         outputs_cls = outputs[:, 0].contiguous()
         outputs_cls = self.fc(outputs_cls)
         outputs_cls = self.tanh(outputs_cls)
 
-        return outputs, outputs_cls
+        return outputs, outputs_cls, attn_probs
 
     def save(self, epoch, loss, path):
         torch.save({
