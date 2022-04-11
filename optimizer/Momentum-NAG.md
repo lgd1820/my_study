@@ -2,8 +2,8 @@
 
 ![](./images/momentum.png)
 
-$$\nu = \alpha\nu - \eta\frac{\partial L}{\partial W}$$
-$$W = W + \nu$$
+$$\nu = \alpha\nu - \eta\frac{\partial L}{\partial W}$$  
+$$W = W + \nu$$  
 
 SGD와 달리 Momentum은 기울기 방향으로 힘을 받아 물체가 가속되어 궁이 구르는 듯한 관성이 적용된다.  
 위식에서 α가 가속도와 관련된 파라미터이다. 자주 이동하는 방향에 관성이 걸리게 되고 중앙으로 가는 방향에 힘을 얻기 때문에 SGD보다 상대적으로 빠르게 이동 할 수 있다. 하지만 과거에 이동했던 변수별로 저장해야하므로 변수에 대한 메모리가 기존에 비해 두배로 필요하다.
