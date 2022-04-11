@@ -2,6 +2,7 @@
 
 ![https://ganghee-lee.tistory.com/24](./images/optimizer.png)  
 
-출처 : https://ganghee-lee.tistory.com/24
+그림 출처 : https://ganghee-lee.tistory.com/24
 
-[경사하강법(GD)](GD.md)
+[경사하강법(GD, SGD)](GD.md)
+[Momentum - NAG](Momentum-NAG.md)
