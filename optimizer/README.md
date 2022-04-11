@@ -1,4 +1,4 @@
-# 옵티머이저
+# 옵티마이저
 
 ![https://ganghee-lee.tistory.com/24](./images/optimizer.png)  
 
