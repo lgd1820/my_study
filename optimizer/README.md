@@ -4,4 +4,4 @@
 
 출처 : https://ganghee-lee.tistory.com/24
 
-[여기](GD.md)
+[경사하강법(GD)](GD.md)
