@@ -5,4 +5,6 @@
 그림 출처 : https://ganghee-lee.tistory.com/24
 
 [경사하강법(GD, SGD)](GD.md)  
-[Momentum - NAG](Momentum-NAG.md)
+[Momentum - NAG](Momentum-NAG.md)  
+[Ada](ada.md)  
+[RMSProp](RMSProp.md)
