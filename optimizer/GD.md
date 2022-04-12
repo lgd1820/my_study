@@ -6,7 +6,7 @@
 
 Gradient Decent 알고리즘은 다음과 같다.
 
-![](https://render.githubusercontent.com/render/math?math=\theta_{t+1}%20=%20\theta_t%20-%20\eta\nabla_\theta%20J(\theta))
+![](https://render.githubusercontent.com/render/math?math=\theta_{t%2b1}%20=%20\theta_t%20-%20\eta\nabla_\theta%20J(\theta))
 
 
 η : learning rate  
