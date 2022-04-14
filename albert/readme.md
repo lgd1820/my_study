@@ -27,3 +27,30 @@ BERT 모델의 변수 개수를 줄이는 방법으로써 N개의 인코더로 �
 - 그 다음 워드피스 임베딩 공간 E를 히든 레이어 H로 투영한다. 이때 차원은 E x H = 128 x 768이 된다.
 
 ## 3. ALBERT 학습 모델
+BERT의 경우 MLM과 NSP 태스크를 통해 사전 학습을 진행한다. ALBERT의 경우 MLM은 사용하지만 NSP 대신 문장 순서 예측(sentence order prediction)인 SOP를 사용한다.
+
+### 문장 순서 예측
+NSP 태스크는 한 쌍의 문장이 isNext 또는 notNext인지를 예측하는 형태로 학습이 이루어진다. SOP 태스크는 주어진 한 쌍의 문장이 문장 순서가 바뀌었는지 여부를 예측하도록 모델 학습이 이루어진다.
+
+```
+문장 1: She cooked pasta
+문장 2: It was delicious
+```
+
+위와 같은 경우 문장 2가 문장 1 다음에 온다는 것을 알 수 있으므로 positive가 된다.
+
+## 4. ALBERT
+|모델|파라미터|레이어|히든|임베딩|
+|---|----|---|--|---|
+|BERT-base|110M|12|768|768|
+|BERT-large|334M|24|1024|1024|
+|ALBERT-base|12M|12|768|128|
+|ALBERT-large|18M|24|1024|128|
+|ALBERT-xlarge|60M|24|2048|128|
+|ALBERT-xxlarge|235M|12|4096|128|
+
+모든 경우에서 ALBERT는 BERT보다 더 적은 변수를 사용한다. ALBERT는 BERT의 대안으로 사용하기 좋은 모델이다.
+
+ALBERT-xxlarge 같은 경우에는 sQuaAD1.1, sQuaAD12.0, MLNI, STT-2, RACE 등의 자연어 태스크에서 BERT 보다 월등한 상향을 보인다.
+
+논문 : https://arxiv.org/pdf/1909.11942.pdf
