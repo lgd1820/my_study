@@ -53,5 +53,5 @@ NSP 태스크는 한 쌍의 문장이 isNext 또는 notNext인지를 예측하�
 
 ALBERT-xxlarge 같은 경우에는 sQuaAD1.1, sQuaAD12.0, MLNI, STT-2, RACE 등의 자연어 태스크에서 BERT 보다 월등한 상향을 보인다.
 
-논문 : https://arxiv.org/pdf/1909.11942.pdf
+논문 : https://arxiv.org/pdf/1909.11942.pdf  
 출처 : 구글 BERT의 정석
