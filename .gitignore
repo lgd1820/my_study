@@ -4,3 +4,7 @@ __pycache__
 models
 snapshot
 .cache
+
+MNIST
+mlruns
+lightning_logs
