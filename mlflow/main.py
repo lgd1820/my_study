@@ -69,32 +69,20 @@ class MnistCNN(pl.LightningModule):
         y_hat = self(x)
         loss = F.cross_entropy(y_hat, y)
         acc = accuracy(y_hat, y)
-        tensorboard_logs = {'train_loss': loss, 'acc': acc}
-        metrics = {"acc":acc, "loss":loss, "log": tensorboard_logs}
-        self.log("train_loss", loss, on_epoch=True)
-        self.log("acc", acc, on_epoch=True)
+        metrics = {"acc":acc, "loss":loss}
+        # self.log("train_loss", loss, on_epoch=True)
+        # self.log("acc", acc, on_epoch=True)
+        self.log_dict(metrics)
         return metrics
     
     def validation_step(self, batch, batch_idx):
         x, y = batch
         pred_y = self(x)
-        # acc = accuracy(pred_y, y)
+        acc = accuracy(pred_y, y)
         loss = F.cross_entropy(pred_y, y)
-        metrics = {"val_loss":loss, "y":y.detach(), "y_hat":pred_y.detach()}
-        return metrics
-
-    def validation_epoch_end(self, outputs):
-        # print(outputs)
-        avg_loss = torch.stack([x['val_loss'] for x in outputs]).mean()
-        y = torch.cat([x['y'] for x in outputs])
-        y_hat = torch.cat([x['y_hat'] for x in outputs])
-        acc = (y_hat.argmax(dim=1) == y).float().mean().item()
-        # print(f"Epoch {self.current_epoch} acc:{acc} loss:{avg_loss}\n")
-
-        tensorboard_logs = {'val_loss': avg_loss, 'val_acc': acc}
-        return {'avg_val_loss': avg_loss,
-                'val_acc': acc,
-                'log': tensorboard_logs}
+        # metrics = {"val_loss":loss, "y":y.detach(), "y_hat":pred_y.detach()}
+        metrics = {"val_loss":loss, "val_acc":acc}
+        self.log_dict(metrics)
 
     def configure_optimizers(self):
         return optim.Adam(self.parameters(), lr=1e-3)
@@ -130,3 +118,5 @@ if __name__ == "__main__":
 
     with mlflow.start_run() as run:
         trainer.fit(mnist, train_dataloaders=train_loader, val_dataloaders=val_loader)
+
+    print_auto_logged_info(mlflow.get_run(run_id=run.info.run_id))
