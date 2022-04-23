@@ -1,0 +1,5 @@
+torch==1.11.0
+matplotlib==3.5.1
+einops==0.4.1
+torchtext==0.6.0
+soynlp==0.0.493

@@ -7,8 +7,9 @@ import matplotlib.pyplot as plt
 os.environ['CUDA_LAUNCH_BLOCKING'] = "1"
 
 from module.transformer import Transformer
-from torchtext.legacy import data
+
 from soynlp.tokenizer import LTokenizer
+from torchtext import data
 
 tokenizer = LTokenizer()
 
