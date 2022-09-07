@@ -8,3 +8,7 @@ snapshot
 MNIST
 mlruns
 lightning_logs
+
+kowiki*
+text
+tokenize/kowiki*
